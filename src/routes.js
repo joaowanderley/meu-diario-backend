@@ -10,7 +10,6 @@ routes.get('/', (req, res) => {
   res.send('Meu diario!');
 })
 
-routes.get('/users', UserController.index)
 routes.post('/users', UserController.create)
 routes.post('/auth', SessionController.create)
 routes.post('/anotation', auth, AnotationController.create)

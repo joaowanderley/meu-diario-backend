@@ -3,13 +3,6 @@ const crypto = require('crypto')
 const bcrypt = require('bcrypt');
 
 module.exports = {
-
-  async index(request, response) {
-    const users = await connection('users').select('*');
-
-    return response.json(users)
-  },
-
   async create(request, response) {
     const { name, email } = request.body;
     // await connection('users').where
