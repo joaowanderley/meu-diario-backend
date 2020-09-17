@@ -9,7 +9,10 @@ module.exports = {
       user: process.env.USERDB,
       password: process.env.PASSWORD,
       database: process.env.DATABASE,
-      port: process.env.DB_PORT
+      port: process.env.DB_PORT,
+      ssl: {
+        rejectUnauthorized: false,
+      }
     },
     searchPath: ['knex', 'public'],
     migrations: {
