@@ -25,7 +25,14 @@ module.exports = {
         }, process.env.JWT_KEY, {
           expiresIn: '1h'
         })
-        return response.status(200).send({ access_token: token })
+        userResponse = {
+          id: user.id,
+          name: user.name,
+        }
+        return response.status(200).send({
+          userResponse,
+          access_token: token
+        })
       }
       return response.status(401).send({ message: 'Authentication failed' })
     })
