@@ -18,7 +18,7 @@ module.exports = {
         .select('*')
         .where('user_id', findUser.id)
       if (user_anotations.length < 1) {
-        return response.status(200).send({ message: 'No have anotations yet, add one now :)' })
+        return response.status(200).send([{ message: 'No have anotations yet, add one now :)' }])
       }
       return response.status(200).send(user_anotations)
     }
@@ -85,7 +85,7 @@ module.exports = {
     const uid = crypto.randomBytes(8).toString('HEX');
 
     if (!text) {
-      return response.status(400).send({ error: 'No value passed in field Text'})
+      return response.status(400).send({ error: 'No value passed in field Text' })
     }
     const anotation = await connection('anotations')
       .insert({
